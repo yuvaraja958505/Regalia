@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regalia - Ultra Luxury Residences | Indiranagar, Bengaluru</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0a1929;
+            --gold: #c6a96c;
+            --light-gold: #d4c0a1;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(10, 25, 41, 0.95);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-left: 30px;
+        }
+
+        .nav-link {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--gold);
+        }
+
+        .nav-link.active {
+            color: var(--gold);
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(rgba(10, 25, 41, 0.7), rgba(10, 25, 41, 0.7)), url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 0 20px;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--white);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards 0.5s;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards 0.8s;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards 1.1s;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--gold);
+            color: var(--navy);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--gold);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--navy);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--navy);
+            color: var(--gold);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .view-all {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            color: #3498db;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .view-all:hover {
+            color: #2980b9;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-image {
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 2s cubic-bezier(0.22, 1, 0.36, 1); /* Slow, smooth */
+        }
+
+        .project-card:hover .card-image img {
+            transform: scale(1.1);
+        }
+
+        .card-content {
+            padding: 24px;
+        }
+
+        .project-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #2c3e50;
+        }
+
+        .project-description {
+            color: #7f8c8d;
+            font-size: 15px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .project-location {
+            display: flex;
+            align-items: center;
+            color: #636e72;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .location-icon {
+            margin-right: 8px;
+            color: #e74c3c;
+        }
+
+        .explore-link {
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            color: #3498db;
+            font-size: 15px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .explore-link:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #3498db;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+
+        .explore-link:hover {
+            color: #2980b9;
+        }
+
+        .explore-link:hover:after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        /* Project Overview */
+        .project-overview {
+            background-color: var(--white);
+        }
+
+        .overview-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .overview-text {
+            flex: 1;
+        }
+
+        .overview-visuals {
+            flex: 1;
+            position: relative;
+        }
+
+        .overview-image {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .overview-image:hover {
+            transform: translateY(-10px);
+        }
+
+        .overview-image,
+        .unit-image {
+            transition: transform 2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .overview-image:hover,
+        .unit-image:hover {
+            transform: scale(1.08);
+        }
+
+        .rera-badge {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            background-color: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--navy);
+            font-weight: 700;
+            font-size: 14px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Unit Details */
+        .unit-details {
+            background-color: var(--light-gray);
+        }
+
+        .units-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+            align-items: stretch; /* Make all cards equal height */
+        }
+
+        .unit-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%; /* Ensure card stretches to fill grid row */
+            min-height: 420px; /* Ensures all cards have at least this height */
+        }
+
+        .unit-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 10s cubic-bezier(0.22, 1, 0.36, 1); /* 10s smooth zoom */
+        }
+
+        .unit-card:hover .unit-image {
+            transform: scale(1.1);
+        }
+
+        .unit-content {
+            padding: 20px;
+        }
+
+        .unit-type {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--navy);
+        }
+
+        .unit-size {
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .unit-price {
+            font-weight: 700;
+            color: var(--navy);
+            font-size: 18px;
+        }
+
+        /* Amenities */
+        .amenities-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .amenity-category {
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(10, 25, 41, 0.08);
+            padding: 32px 24px;
+            transition: box-shadow 0.3s, transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .amenity-category:hover {
+            box-shadow: 0 16px 40px rgba(198, 169, 108, 0.15);
+            transform: translateY(-6px) scale(1.03);
+        }
+
+        .amenity-icon {
+            font-size: 48px;
+            color: var(--gold);
+            margin-bottom: 18px;
+        }
+
+        .amenity-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            color: var(--navy);
+        }
+
+        .amenity-list {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        .amenity-item {
+            font-size: 16px;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            color: var(--dark-gray);
+            opacity: 1; /* <-- Change from 0 to 1 */
+            transform: translateY(0); /* <-- Change from 20px to 0 */
+            transition: opacity 0.6s, transform 0.6s;
+        }
+
+        .amenity-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Location */
+        .location-map {
+            position: relative;
+            margin-top: 40px;
+        }
+
+        .map-image {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .location-pins {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .pin {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--gold);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+        }
+
+        .pin:after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 20px;
+            background-color: var(--gold);
+        }
+
+        .location-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .info-column {
+            padding: 20px;
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--gold);
+        }
+
+        /* Why Invest */
+        .why-invest {
+            background-color: var(--navy);
+            color: var(--white);
+        }
+
+        .why-invest .section-title {
+            color: var(--white);
+        }
+
+        .benefits-list {
+            list-style: none;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .benefit-icon {
+            font-size: 24px;
+            color: var(--gold);
+            margin-right: 20px;
+            min-width: 40px;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            text-align: center;
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3') no-repeat center center/cover;
+            padding: 120px 0;
+        }
+
+        .final-cta h2 {
+            margin-bottom: 20px;
+        }
+
+        .final-cta p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 18px;
+        }
+
+        .cta-buttons-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-icon {
+            color: var(--gold);
+            font-size: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--navy);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .footer-disclaimer {
+            max-width: 400px;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: var(--gold);
+            color: var(--navy);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Video Wall Styles */
+.video-wall {
+    background: var(--light-gray);
+    padding: 80px 0;
+}
+.video-wall-grid {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.video-thumb {
+    position: relative;
+    width: 360px;
+    aspect-ratio: 16/9;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(10,25,41,0.10);
+    cursor: pointer;
+    transition: transform 0.2s;
+    background: #000;
+}
+.video-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s;
+}
+.video-thumb:hover img {
+    transform: scale(1.06);
+    filter: brightness(0.85);
+}
+.play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(198,169,108,0.92);
+    color: var(--navy);
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    transition: background 0.2s;
+}
+.video-thumb:hover .play-btn {
+    background: var(--gold);
+    color: #fff;
+}
+
+/* Modal Styles */
+.video-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0; top: 0; width: 100vw; height: 100vh;
+    background: rgba(10,25,41,0.85);
+    align-items: center;
+    justify-content: center;
+}
+.video-modal.active {
+    display: flex;
+}
+.video-modal-content {
+    background: #fff;
+    border-radius: 14px;
+    max-width: 800px;
+    width: 90vw;
+    padding: 0;
+    position: relative;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.25);
+    animation: fadeInUp 0.4s;
+}
+.video-modal-close {
+    position: absolute;
+    top: 12px; right: 18px;
+    font-size: 2rem;
+    color: var(--navy);
+    cursor: pointer;
+    z-index: 10;
+    transition: color 0.2s;
+}
+.video-modal-close:hover {
+    color: var(--gold);
+}
+.video-modal-iframe-container {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #000;
+    border-radius: 14px;
+    overflow: hidden;
+}
+.video-modal-iframe-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .video-wall-grid {
+        gap: 20px;
+    }
+    .video-thumb {
+        width: 280px;
+    }
+}
+@media (max-width: 768px) {
+    .video-wall-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    .video-thumb {
+        width: 95vw;
+        max-width: 400px;
+    }
+}
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .overview-container {
+                flex-direction: column;
+            }
+            
+            .amenities-container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background-color: var(--navy);
+                width: 100%;
+                text-align: center;
+                transition: all 0.3s ease;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 20px 0;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-item {
+                margin: 25px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .location-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons-group {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+    .section-title {
+        font-size: 24px;
+    }
+    .card-content {
+        padding: 20px;
+    }
+    .project-name {
+        font-size: 18px;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">Regalia</a>
+            <button class="mobile-menu-btn" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#overview" class="nav-link">Overview</a></li>
+                <li class="nav-item"><a href="#units" class="nav-link">Residences</a></li>
+                <li class="nav-item"><a href="#amenities" class="nav-link">Amenities</a></li>
+                <li class="nav-item"><a href="#location" class="nav-link">Location</a></li>
+                <li class="nav-item"><a href="#investment" class="nav-link">Investment</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Regalia – Ultra Luxury Residences in Indiranagar, Bengaluru</h1>
+            <p class="hero-subtitle">3 & 4 BHK | Townhouses | Penthouses | Starting ₹5.98 Cr | Possession April 2029</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary"><i class="fas fa-phone"></i> Book a Site Visit</a>
+                <a href="#contact" class="btn btn-secondary"><i class="fas fa-download"></i> Get Brochure</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Video -->
+    <!-- <section class="project-video" style="text-align:center; padding:60px 0;">
+        <div class="container">
+            <h2 class="section-title">Watch the Regalia Walkthrough</h2>
+            <video controls width="800" style="max-width:100%; border-radius:12px; box-shadow:0 8px 32px rgba(10,25,41,0.08);">
+                <source src="your-video-file.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section> -->
+
+    <!-- Project Overview -->
+    <section class="project-overview" id="overview">
+        <div class="container">
+            <h2 class="section-title">Redefining Luxury Living</h2>
+            <div class="overview-container">
+                <div class="overview-text fade-in">
+                    <p>Regalia presents an exclusive collection of ultra-luxury residences in the heart of Indiranagar, Bengaluru. Meticulously designed to offer an unparalleled living experience, Regalia combines sophisticated architecture with world-class amenities.</p>
+                    <br>
+                    <p>Spread across 4.5 acres of prime real estate, the project features only 120 exclusive residences, ensuring privacy and exclusivity. Designed by award-winning architects and built by RL Groups, one of Bengaluru's most trusted developers.</p>
+                    <br>
+                    <p>Every detail at Regalia has been carefully curated to offer residents a lifestyle of comfort, convenience, and luxury. From the grand entrance lobby to the meticulously landscaped gardens, no expense has been spared in creating a truly exceptional living environment.</p>
+                    <br>
+                    <a href="#" class="btn btn-primary"><i class="fas fa-download"></i> Download Project Brochure</a>
+                </div>
+                <div class="overview-visuals fade-in">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3" alt="Regalia Masterplan" class="overview-image">
+                    <div class="rera-badge">RERA<br>Approved</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unit Details -->
+    <section class="unit-details" id="units">
+        <div class="container">
+            <h2 class="section-title">Choose Your Luxury Home</h2>
+            <div class="units-grid" style="gap:40px;">
+                <!-- Card 1 -->
+                <div class="unit-card fade-in" style="position:relative; overflow:hidden; min-height:420px; color:#fff;">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Century Marathahalli" class="unit-image" style="height:100%; min-height:420px; object-fit:cover; filter:brightness(0.65);">
+                    <div style="position:absolute; top:0; left:0; width:100%; height:100%; display:flex; flex-direction:column; justify-content:flex-end; padding:36px 28px 32px 28px;">
+                        <div style="font-size:1.3rem; letter-spacing:0.18em; font-weight:600; margin-bottom:10px;">3 BHK Residences </div>
+                        <div style="font-size:1.1rem; font-weight:500; margin-bottom:18px;"> 2390–2475 Sq.ft</div>
+                        <div style="display:flex; align-items:center; margin-bottom:24px;">
+                            <!-- <i class="fas fa-map-marker-alt" style="margin-right:8px; color:#fff;"></i> -->
+                            <span style="font-size:1rem;">₹5.98 Cr onwards</span>
+                        </div>
+                        <a href="#" style="display:inline-flex; align-items:center; font-size:1.1rem; font-weight:600; letter-spacing:0.18em; text-decoration:none; color:#fff; border-bottom:2px solid #fff; width:max-content; gap:10px;">
+                            <span style="font-size:1.3rem;">&#8594;</span> EXPLORE
+                        </a>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="unit-card fade-in" style="position:relative; overflow:hidden; min-height:420px; color:#fff;">
+                    <img src="./img/O-Hotel-Goa-New-O-Hotel-Goa-New-deluxeandroom1.jpg" alt="Century Liva" class="unit-image" style="height:100%; min-height:420px; object-fit:cover; filter:brightness(0.65);">
+                    <div style="position:absolute; top:0; left:0; width:100%; height:100%; display:flex; flex-direction:column; justify-content:flex-end; padding:36px 28px 32px 28px;">
+                        <div style="font-size:1.3rem; letter-spacing:0.18em; font-weight:600; margin-bottom:10px;">4 BHK Residences  </div>
+                        <div style="font-size:1.1rem; font-weight:500; margin-bottom:18px;">3270–4000 Sq.ft </div>
+                        <div style="display:flex; align-items:center; margin-bottom:24px;">
+                            <!-- <i class="fas fa-map-marker-alt" style="margin-right:8px; color:#fff;"></i> -->
+                            <span style="font-size:1rem;"> ₹6.95 Cr onwards</span>
+                        </div>
+                        <a href="#" style="display:inline-flex; align-items:center; font-size:1.1rem; font-weight:600; letter-spacing:0.18em; text-decoration:none; color:#fff; border-bottom:2px solid #fff; width:max-content; gap:10px;">
+                            <span style="font-size:1.3rem;">&#8594;</span> EXPLORE
+                        </a>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="unit-card fade-in" style="position:relative; overflow:hidden; min-height:420px; color:#fff;">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Century Regalia" class="unit-image" style="height:100%; min-height:420px; object-fit:cover; filter:brightness(0.65);">
+                    <div style="position:absolute; top:0; left:0; width:100%; height:100%; display:flex; flex-direction:column; justify-content:flex-end; padding:36px 28px 32px 28px;">
+                        <div style="font-size:1.3rem; letter-spacing:0.18em; font-weight:600; margin-bottom:10px;">Townhouses (Duplex)  </div>
+                        <div style="font-size:1.1rem; font-weight:500; margin-bottom:18px;">3 & 4 BHK  </div>
+                        <div style="display:flex; align-items:center; margin-bottom:24px;">
+                            <i class="fas fa-map-marker-alt" style="margin-right:8px; color:#fff;"></i>
+                            <span style="font-size:1rem;">From ₹11 Cr</span>
+                        </div>
+                        <a href="#" style="display:inline-flex; align-items:center; font-size:1.1rem; font-weight:600; letter-spacing:0.18em; text-decoration:none; color:#fff; border-bottom:2px solid #fff; width:max-content; gap:10px;">
+                            <span style="font-size:1.3rem;">&#8594;</span> EXPLORE
+                        </a>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="unit-card fade-in" style="position:relative; overflow:hidden; min-height:420px; color:#fff;">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sky Villas" class="unit-image" style="height:100%; min-height:420px; object-fit:cover; filter:brightness(0.65);">
+                    <div style="position:absolute; top:0; left:0; width:100%; height:100%; display:flex; flex-direction:column; justify-content:flex-end; padding:36px 28px 32px 28px;">
+                        <div style="font-size:1.3rem; letter-spacing:0.18em; font-weight:600; margin-bottom:10px;">Imperial Residences </div>
+                        <div style="font-size:1.1rem; font-weight:500; margin-bottom:18px;"> 4 & 5 BHK | 4780 Sq.ft </div>
+                        <div style="display:flex; align-items:center; margin-bottom:24px;">
+                            <!-- <i class="fas fa-map-marker-alt" style="margin-right:8px; color:#fff;"></i> -->
+                            <span style="font-size:1rem;"> ₹13 Cr onwards</span>
+                        </div>
+                        <a href="#" style="display:inline-flex; align-items:center; font-size:1.1rem; font-weight:600; letter-spacing:0.18em; text-decoration:none; color:#fff; border-bottom:2px solid #fff; width:max-content; gap:10px;">
+                            <span style="font-size:1.3rem;">&#8594;</span> EXPLORE
+                        </a>
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="unit-card fade-in" style="position:relative; overflow:hidden; min-height:420px; color:#fff;">
+                    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Garden Suites" class="unit-image" style="height:100%; min-height:420px; object-fit:cover; filter:brightness(0.65);">
+                    <div style="position:absolute; top:0; left:0; width:100%; height:100%; display:flex; flex-direction:column; justify-content:flex-end; padding:36px 28px 32px 28px;">
+                        <div style="font-size:1.3rem; letter-spacing:0.18em; font-weight:600; margin-bottom:10px;">Celestial Penthouses </div>
+                        <div style="font-size:1.1rem; font-weight:500; margin-bottom:18px;"> 4 BHK | 4780–5380 Sq.ft </div>
+                        <div style="display:flex; align-items:center; margin-bottom:24px;">
+                            <!-- <i class="fas fa-map-marker-alt" style="margin-right:8px; color:#fff;"></i> -->
+                            <span style="font-size:1rem;"> ₹18 Cr onwards</span>
+                        </div>
+                        <a href="#" style="display:inline-flex; align-items:center; font-size:1.1rem; font-weight:600; letter-spacing:0.18em; text-decoration:none; color:#fff; border-bottom:2px solid #fff; width:max-content; gap:10px;">
+                            <span style="font-size:1.3rem;">&#8594;</span> EXPLORE
+                        </a>
+                    </div>
+                </div>
+                <!-- Card 6 -->
+                <!-- <div class="unit-card fade-in" style="position:relative; overflow:hidden; min-height:420px; color:#fff;">
+                    <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Imperial Residences" class="unit-image" style="height:100%; min-height:420px; object-fit:cover; filter:brightness(0.65);">
+                    <div style="position:absolute; top:0; left:0; width:100%; height:100%; display:flex; flex-direction:column; justify-content:flex-end; padding:36px 28px 32px 28px;">
+                        <div style="font-size:1.3rem; letter-spacing:0.18em; font-weight:600; margin-bottom:10px;">IMPERIAL RESIDENCES</div>
+                        <div style="font-size:1.1rem; font-weight:500; margin-bottom:18px;">4 BED RESIDENCES</div>
+                        <div style="display:flex; align-items:center; margin-bottom:24px;">
+                            <i class="fas fa-map-marker-alt" style="margin-right:8px; color:#fff;"></i>
+                            <span style="font-size:1rem;">Koramangala</span>
+                        </div>
+                        <a href="#" style="display:inline-flex; align-items:center; font-size:1.1rem; font-weight:600; letter-spacing:0.18em; text-decoration:none; color:#fff; border-bottom:2px solid #fff; width:max-content; gap:10px;">
+                            <span style="font-size:1.3rem;">&#8594;</span> EXPLORE
+                        </a>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Amenities -->
+    <section class="amenities" id="amenities">
+        <div class="container">
+            <h2 class="section-title">40+ World-Class Amenities, Designed Around You</h2>
+            <div class="amenities-container">
+                <div class="amenity-category fade-in">
+                    <div class="amenity-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3 class="amenity-title">Zen</h3>
+                    <ul class="amenity-list">
+                        <li class="amenity-item">Yoga & Meditation Pavilion</li>
+                        <li class="amenity-item">Reflexology Footpath</li>
+                        <li class="amenity-item">Serenity Water Gardens</li>
+                        <li class="amenity-item">Zen Garden with Bonsai</li>
+                        <li class="amenity-item">Aroma Therapy Walkways</li>
+                    </ul>
+                </div>
+                <div class="amenity-category fade-in">
+                    <div class="amenity-icon">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <h3 class="amenity-title">Action</h3>
+                    <ul class="amenity-list">
+                        <li class="amenity-item">Olympic-sized Swimming Pool</li>
+                        <li class="amenity-item">Tennis & Squash Courts</li>
+                        <li class="amenity-item">State-of-the-art Gymnasium</li>
+                        <li class="amenity-item">Basketball Court</li>
+                        <li class="amenity-item">Jogging Track</li>
+                    </ul>
+                </div>
+                <div class="amenity-category fade-in">
+                    <div class="amenity-icon">
+                        <i class="fas fa-glass-cheers"></i>
+                    </div>
+                    <h3 class="amenity-title">Celebration</h3>
+                    <ul class="amenity-list">
+                        <li class="amenity-item">Grand Clubhouse</li>
+                        <li class="amenity-item">Private Party Lawn</li>
+                        <li class="amenity-item">VIP Entertainment Lounge</li>
+                        <li class="amenity-item">Wine Cellar & Tasting Room</li>
+                        <li class="amenity-item">BBQ Pavilion</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Wall Section -->
+<section class="video-wall" id="video-wall">
+    <div class="container">
+        <h2 class="section-title">Regalia Video Gallery</h2>
+        <div class="video-wall-grid">
+            <!-- Video 1 -->
+            <div class="video-thumb" data-video="https://www.youtube.com/embed/JX9AEmOFmwc">
+                <img src="https://img.youtube.com/vi/JX9AEmOFmwc/hqdefault.jpg" alt="Walkthrough 1">
+                <span class="play-btn"><i class="fas fa-play"></i></span>
+            </div>
+            <!-- Video 2 -->
+            <div class="video-thumb" data-video="https://www.youtube.com/embed/ByyAhxGKgcs">
+                <img src="https://img.youtube.com/vi/ByyAhxGKgcs/hqdefault.jpg" alt="Walkthrough 2">
+                <span class="play-btn"><i class="fas fa-play"></i></span>
+            </div>
+            <!-- Video 3 -->
+            <div class="video-thumb" data-video="https://www.youtube.com/embed/O-iXkcTpJSY">
+                <img src="https://img.youtube.com/vi/O-iXkcTpJSY/hqdefault.jpg" alt="Walkthrough 3">
+                <span class="play-btn"><i class="fas fa-play"></i></span>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-content">
+            <span class="video-modal-close" id="videoModalClose">&times;</span>
+            <div class="video-modal-iframe-container">
+                <iframe id="videoModalIframe" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Location -->
+    <section class="location" id="location">
+        <div class="container">
+            <h2 class="section-title">Indiranagar – The Heart of It All</h2>
+            <div class="location-map fade-in" style="width:100%; max-width:100%;">
+    <div style="position:relative; width:100%; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:10px; box-shadow:0 20px 40px rgba(0,0,0,0.1);">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14073.688451671474!2d77.63821159999999!3d12.97293925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae16a418770391%3A0xb50f46b826501036!2sIndiranagar%2C%20Bengaluru%2C%20Karnataka!5e1!3m2!1sen!2sin!4v1757176076902!5m2!1sen!2sin" 
+            style="border:0; position:absolute; top:0; left:0; width:100%; height:100%;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</div>
+            <div class="location-info">
+                <div class="info-column fade-in">
+                    <h3 class="info-title"><i class="fas fa-utensils"></i> Entertainment</h3>
+                    <p>100 Feet Road - 5 mins</p>
+                    <p>Indiranagar Metro Station - 8 mins</p>
+                    <p>Shopping Complexes - 10 mins</p>
+                    <p>Fine Dining Restaurants - 5 mins</p>
+                </div>
+                <div class="info-column fade-in">
+                    <h3 class="info-title"><i class="fas fa-hotel"></i> Hospitality</h3>
+                    <p>Luxury Hotels - 10 mins</p>
+                    <p>Business Centers - 8 mins</p>
+                    <p>Convention Centers - 15 mins</p>
+                    <p>Service Apartments - 5 mins</p>
+                </div>
+                <div class="info-column fade-in">
+                    <h3 class="info-title"><i class="fas fa-hospital"></i> Healthcare</h3>
+                    <p>Multi-specialty Hospitals - 10 mins</p>
+                    <p>Specialist Clinics - 5 mins</p>
+                    <p>24/7 Pharmacy - 3 mins</p>
+                    <p>Emergency Services - 8 mins</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Invest -->
+    <section class="why-invest" id="investment">
+        <div class="container">
+            <h2 class="section-title">Why Choose Regalia</h2>
+            <ul class="benefits-list">
+                <li class="benefit-item fade-in">
+                    <div class="benefit-icon"><i class="fas fa-check-circle"></i></div>
+                    <div>
+                        <h3>Prime Location</h3>
+                        <p>Indiranagar is Bengaluru's most prestigious address, offering unparalleled connectivity and lifestyle amenities.</p>
+                    </div>
+                </li>
+                <li class="benefit-item fade-in">
+                    <div class="benefit-icon"><i class="fas fa-check-circle"></i></div>
+                    <div>
+                        <h3>RERA & LEED Certified</h3>
+                        <p>Fully compliant with all regulations and designed for environmental sustainability.</p>
+                    </div>
+                </li>
+                <li class="benefit-item fade-in">
+                    <div class="benefit-icon"><i class="fas fa-check-circle"></i></div>
+                    <div>
+                        <h3>Low-Density Luxury</h3>
+                        <p>Only 120 residences across 4.5 acres ensures privacy and exclusivity.</p>
+                    </div>
+                </li>
+                <li class="benefit-item fade-in">
+                    <div class="benefit-icon"><i class="fas fa-check-circle"></i></div>
+                    <div>
+                        <h3>Trusted Partners</h3>
+                        <p>Designed by world-renowned architects and built by RL Groups with 25+ years of excellence.</p>
+                    </div>
+                </li>
+                <li class="benefit-item fade-in">
+                    <div class="benefit-icon"><i class="fas fa-check-circle"></i></div>
+                    <div>
+                        <h3>High ROI Potential</h3>
+                        <p>Properties in Indiranagar have consistently appreciated at 10-12% annually.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+     <!-- Other Projects -->
+    <section class="other-projects" id="other-projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Other Projects</h2>
+                <a href="#" class="view-all">View All Properties <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Luxury Villa">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="project-name">Luxury Villa</h3>
+                        <p class="project-description">A stunning modern villa with panoramic views, featuring 5 bedrooms, infinity pool, and smart home technology.</p>
+                        <div class="project-location">
+                            <i class="fas fa-map-marker-alt location-icon"></i>
+                            <span>Beverly Hills, CA</span>
+                        </div>
+                        <a href="#" class="explore-link">Explore Property</a>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Urban Loft">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="project-name">Urban Loft</h3>
+                        <p class="project-description">Contemporary loft in the heart of the city with exposed brick, high ceilings, and industrial-chic design elements.</p>
+                        <div class="project-location">
+                            <i class="fas fa-map-marker-alt location-icon"></i>
+                            <span>New York, NY</span>
+                        </div>
+                        <a href="#" class="explore-link">Explore Property</a>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Coastal Retreat">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="project-name">Coastal Retreat</h3>
+                        <p class="project-description">Beachfront property with direct access to private beach, featuring expansive decks and ocean views from every room.</p>
+                        <div class="project-location">
+                            <i class="fas fa-map-marker-alt location-icon"></i>
+                            <span>Miami, FL</span>
+                        </div>
+                        <a href="#" class="explore-link">Explore Property</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta" id="contact">
+        <div class="container">
+            <h2 class="section-title">Your Luxury Address Awaits</h2>
+            <p>Whether it's your forever home or a legacy investment, Regalia is where luxury meets lifestyle. Experience the epitome of sophisticated living in the heart of Bengaluru.</p>
+            <div class="cta-buttons-group">
+                <a href="tel:+910123456789" class="btn btn-primary"><i class="fas fa-phone"></i> Call Now</a>
+                <a href="https://wa.me/919035162486?text=I'm%20interested%20in%20Regalia%20project" target="_blank" class="btn btn-secondary">
+    <i class="fab fa-whatsapp"></i> WhatsApp Us
+</a>
+                <a href="#contact" class="btn btn-primary"><i class="fas fa-video"></i> Book Virtual Tour</a>
+            </div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                    <div>+91  9035162486</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <div>rlgroupsbangalore@gmail.com</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                    <div>+91  9035162486</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div>
+                    <a href="#" class="footer-logo">Regalia</a>
+                    <p class="footer-disclaimer">RERA No: PRM/KA/RERA/1251/446/PR/200622</p>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Regalia Project by RL Groups. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // If it's an amenity list, animate the items with delay
+                    if (entry.target.classList.contains('amenity-list')) {
+                        const items = entry.target.querySelectorAll('.amenity-item');
+                        items.forEach((item, index) => {
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            }, index * 200);
+                        });
+                    }
+                    
+                    // If it's a benefit item, animate with delay
+                    if (entry.target.classList.contains('benefit-item')) {
+                        const items = document.querySelectorAll('.benefit-item');
+                        items.forEach((item, index) => {
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            }, index * 300);
+                        });
+                    }
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        fadeElements.forEach(element => {
+            fadeInObserver.observe(element);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Video Modal
+const videoThumbs = document.querySelectorAll('.video-thumb');
+const videoModal = document.getElementById('videoModal');
+const videoModalClose = document.getElementById('videoModalClose');
+const videoModalIframe = document.getElementById('videoModalIframe');
+
+videoThumbs.forEach(thumb => {
+    thumb.addEventListener('click', function() {
+        const videoSrc = this.getAttribute('data-video');
+        videoModalIframe.src = videoSrc;
+        videoModal.style.display = 'flex';
+    });
+});
+
+videoModalClose.addEventListener('click', () => {
+    videoModal.style.display = 'none';
+    videoModalIframe.src = ''; // Stop the video when modal is closed
+});
+
+// Close modal on outside click
+window.addEventListener('click', (e) => {
+    if (e.target === videoModal) {
+        videoModal.style.display = 'none';
+        videoModalIframe.src = ''; // Stop the video when modal is closed
+    }
+});
+
+// Video Wall Modal Logic
+document.querySelectorAll('.video-thumb').forEach(thumb => {
+    thumb.addEventListener('click', function() {
+        const videoUrl = this.getAttribute('data-video') + '?autoplay=1&rel=0';
+        document.getElementById('videoModalIframe').src = videoUrl;
+        document.getElementById('videoModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+});
+document.getElementById('videoModalClose').onclick = closeVideoModal;
+document.getElementById('videoModal').onclick = function(e) {
+    if (e.target === this) closeVideoModal();
+};
+function closeVideoModal() {
+    document.getElementById('videoModal').classList.remove('active');
+    document.getElementById('videoModalIframe').src = '';
+    document.body.style.overflow = '';
+}
+
+    // Highlight active nav link on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    function setActiveNav() {
+        let scrollPos = window.scrollY + 100; // Offset for header
+        sections.forEach(section => {
+            if (
+                scrollPos >= section.offsetTop &&
+                scrollPos < section.offsetTop + section.offsetHeight
+            ) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${section.id}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }
+
+    window.addEventListener('scroll', setActiveNav);
+    window.addEventListener('DOMContentLoaded', setActiveNav);
+    </script>
+</body>
+</html>
